@@ -1,0 +1,55 @@
+@font-face {
+	font-family: "iconfont";
+	/* Project id 4086529 */
+	src: url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.woff2?t=1684996007124') format('woff2'),
+		url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.woff?t=1684996007124') format('woff'),
+		url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.ttf?t=1684996007124') format('truetype');
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-outline-smallcaps:before {
+	content: "\e9ac";
+}
+
+.icon-outline-quote-down-square:before {
+	content: "\e9ad";
+}
+
+.icon-outline-textalign-justifyright:before {
+	content: "\e9ae";
+}
+
+.icon-outline-textalign-center:before {
+	content: "\e9af";
+}
+
+.icon-outline-wallet-3:before {
+	content: "\e9b0";
+}
+
+.icon-outline-wallet-add:before {
+	content: "\e9b1";
+}
+
+.icon-outline-card-add:before {
+	content: "\e9b2";
+}
+
+.icon-outline-archive1:before {
+	content: "\e9b3";
+}
+
+.icon-outline-card-receive:before {
+	content: "\e9b4";
+}
+
+.icon-outline-wallet-add-1:before {
+	content: "\e9b5";
+}

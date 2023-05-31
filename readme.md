@@ -1,0 +1,5 @@
+- 全局状态pinia: [地址](https://pinia.web3doc.top/introduction.html)
+- UI框架uview: [地址](https://vkuviewdoc.fsq.pub/components/icon.html)
+- 下拉列表组件: [地址](https://z-paging.zxlee.cn)
+- 图表组件: [地址](https://www.ucharts.cn/v2/#/demo/index)
+- 网络请求: [地址](https://www.quanzhan.co/luch-request/handbook/)

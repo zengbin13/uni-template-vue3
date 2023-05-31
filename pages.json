@@ -1,0 +1,138 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}, {
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/other/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/other/paging/paging",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/other/iconfont/iconfont",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/other/chart/chart",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/other/video/video",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/other/pay/pay",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/other/app-update/app-update",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+
+		{
+			"path": "pages/weixin/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/weixin/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"subPackages": [{
+		"root": "subPackA",
+		"pages": [{
+			"path": "index/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		}]
+	}],
+	// 分包预载配置
+	"preloadRule": {
+		// 进入页面预下载subPackA分包
+		"pages/profile/profile": {
+			"network": "all",
+			"packages": ["subPackA"]
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#2979ff",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"fontSize": "12px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "./static/images/tabbar/home.png",
+				"selectedIconPath": "./static/images/tabbar/home_a.png"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我的",
+				"iconPath": "./static/images/tabbar/profile.png",
+				"selectedIconPath": "./static/images/tabbar/profile_a.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom", //自定义导航栏
+		"app-plus": {
+			"bounce": "none", //全局禁用回弹效果
+			"titleNView": "false", //禁用原生导航栏
+			"scrollIndicator": "none"
+		}
+	},
+	"uniIdRouter": {}
+}
