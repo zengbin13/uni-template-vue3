@@ -19,7 +19,8 @@
         /* 模块配置 */
         "modules" : {
             "Barcode" : {},
-            "VideoPlayer" : {}
+            "VideoPlayer" : {},
+            "Payment" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -50,7 +51,17 @@
             /* SDK配置 */
             "sdkConfigs" : {
                 "oauth" : {},
-                "ad" : {}
+                "ad" : {},
+                "payment" : {
+                    "alipay" : {
+                        "__platform__" : [ "android" ]
+                    },
+                    "weixin" : {
+                        "__platform__" : [ "android" ],
+                        "appid" : "wx5389e03c61407d95",
+                        "UniversalLinks" : ""
+                    }
+                }
             }
         }
     },

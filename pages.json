@@ -83,7 +83,16 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/other/awaken-app/awaken-app",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"subPackages": [{
 		"root": "subPackA",
 		"pages": [{

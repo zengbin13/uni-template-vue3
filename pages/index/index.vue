@@ -9,15 +9,12 @@
 <script setup>
 	const test = () => {
 		console.log('xxx');
-		uni.login({
-			provider: 'weixin',
-			success(res) {
-				console.log(res);
-			},
-			fail(e) {
-				console.log(e);
+		uni.getProvider({
+			service: 'payment',
+			success: function(res) {
+				console.log(res)
 			}
-		})
+		});
 	}
 </script>
 

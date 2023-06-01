@@ -8,8 +8,11 @@
 			<u-button @click="route('/pages/other/iconfont/iconfont')">iconfont图标</u-button>
 			<u-button @click="route('/pages/other/chart/chart')">chart图表</u-button>
 			<u-button @click="route('/pages/other/video/video')">video直播</u-button>
-			<u-button @click="route('/pages/other/pay/pay')">支付Pay</u-button>
-			<u-button @click="route('/pages/other/app-update/app-update')">APP升级</u-button>
+			<!-- #ifdef APP-PLUS -->
+			<u-button @click="route('/pages/other/awaken-app/awaken-app')">唤醒APP</u-button>
+			<!-- #endif -->
+			<u-button @click="route('/pages/other/pay/pay')" disabled>支付Pay</u-button>
+			<u-button @click="route('/pages/other/app-update/app-update')" disabled>APP升级</u-button>
 		</view>
 	</view>
 </template>
