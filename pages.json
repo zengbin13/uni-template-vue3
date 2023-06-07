@@ -1,114 +1,140 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		}, {
-			"path": "pages/profile/profile",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/other/index",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/other/paging/paging",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},
-		{
-			"path": "pages/other/iconfont/iconfont",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/other/chart/chart",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/other/video/video",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/other/pay/pay",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/other/app-update/app-update",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
 
 		{
-			"path": "pages/weixin/login/login",
+			"path": "pages/tabbar/home",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
-			"path": "pages/weixin/index",
+			"path": "pages/tabbar/profile",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
 		}
-	    ,{
-            "path" : "pages/other/awaken-app/awaken-app",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+
+	],
 	"subPackages": [{
-		"root": "subPackA",
+		"root": "pages-p",
 		"pages": [{
-			"path": "index/index",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
+				"path": "index/index",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			},
+			{
+				"path": "other/index",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			},
+			{
+				"path": "other/paging/paging",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			},
+			{
+				"path": "other/iconfont/iconfont",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
+				"path": "other/chart/chart",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
+				"path": "other/video/video",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
+				"path": "other/pay/pay",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
+				"path": "other/app-update/app-update",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+
+			{
+				"path": "weixin/login/login",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "weixin/index",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "other/awaken-app/awaken-app",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
 			}
-		}]
+
+			, {
+				"path": "other/global-status/global-status",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "other/request/request",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "other/paging/paging-swiper",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}
+		]
 	}],
 	// 分包预载配置
 	"preloadRule": {
 		// 进入页面预下载subPackA分包
-		"pages/profile/profile": {
+		"pages/tabbar/profile": {
 			"network": "all",
-			"packages": ["subPackA"]
+			"packages": ["pages-p"]
 		}
 	},
 	"tabBar": {
@@ -118,13 +144,13 @@
 		"backgroundColor": "#ffffff",
 		"fontSize": "12px",
 		"list": [{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/tabbar/home",
 				"text": "首页",
 				"iconPath": "./static/images/tabbar/home.png",
 				"selectedIconPath": "./static/images/tabbar/home_a.png"
 			},
 			{
-				"pagePath": "pages/profile/profile",
+				"pagePath": "pages/tabbar/profile",
 				"text": "我的",
 				"iconPath": "./static/images/tabbar/profile.png",
 				"selectedIconPath": "./static/images/tabbar/profile_a.png"

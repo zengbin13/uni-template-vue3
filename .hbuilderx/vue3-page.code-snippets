@@ -30,5 +30,42 @@
 			"</style>"
 		],
 		"description": "vue3 初始化页面"
+	},
+	"vue3 初始化组件": {
+		"prefix": "vue3-component",
+		"body": [
+			"<template>",
+			"	<view>",
+			"		{{title}} - {{props.name}}",
+			"	</view>",
+			"</template>",
+			"",
+			"<script>",
+			"	export default {",
+			"		name: \"component-name\",",
+			"	}",
+			"</script>",
+			"",
+			"<script setup>",
+			"	import {",
+			"		ref,",
+			"		inject",
+			"	} from 'vue';",
+			"",
+			"	const props = defineProps({",
+			"		name: {",
+			"			type: String,",
+			"			default: '名称'",
+			"		}",
+			"	})",
+			"",
+			"	const title = ref('组件')",
+			"</script>",
+			"",
+			"<style lang=\"scss\" scoped>",
+			"",
+			"</style>"
+		],
+		"description": "vue3 初始化组件"
 	}
 }

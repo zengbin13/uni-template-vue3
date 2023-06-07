@@ -1,9 +1,9 @@
 @font-face {
 	font-family: "iconfont";
 	/* Project id 4086529 */
-	src: url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.woff2?t=1684996007124') format('woff2'),
-		url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.woff?t=1684996007124') format('woff'),
-		url('https://at.alicdn.com/t/c/font_4086529_fgsd2vfmf2n.ttf?t=1684996007124') format('truetype');
+	src: url('https://at.alicdn.com/t/c/font_4086529_5tm3wojv8hr.woff2?t=1685957371935') format('woff2'),
+		url('https://at.alicdn.com/t/c/font_4086529_5tm3wojv8hr.woff?t=1685957371935') format('woff'),
+		url('https://at.alicdn.com/t/c/font_4086529_5tm3wojv8hr.ttf?t=1685957371935') format('truetype');
 }
 
 .iconfont {
@@ -12,6 +12,22 @@
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-outline-arrow-down-1:before {
+	content: "\e718";
+}
+
+.icon-outline-arrow-left-1:before {
+	content: "\e71f";
+}
+
+.icon-outline-arrow-up-1:before {
+	content: "\e72c";
+}
+
+.icon-outline-arrow-right-1:before {
+	content: "\e72d";
 }
 
 .icon-outline-smallcaps:before {
