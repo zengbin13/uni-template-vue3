@@ -16,6 +16,8 @@
     "pinia": "^2.1.3"
   },
   "devDependencies": {
+    "mock": "^0.1.1",
+    "mockjs": "^1.1.0",
     "terser": "^5.17.6"
   }
 }

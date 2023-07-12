@@ -1,10 +1,10 @@
 {
-  "id": "uv-ui-tools",
-  "displayName": "uv-ui-tools 工具集  全面兼容小程序、nvue、vue2、vue3等多端",
-  "version": "1.0.7",
-  "description": "uv-ui-tools，集成工具库，强大的Http请求封装，清晰的文档说明，开箱即用。方便使用，可以全局使用",
+  "id": "uv-icon",
+  "displayName": "uv-icon 图标  全面兼容小程序、nvue、vue2、vue3等多端",
+  "version": "1.0.3",
+  "description": "基于字体的图标集，包含了大多数常见场景的图标，支持自定义，支持自定义图片图标等。可自定义颜色、大小。",
   "keywords": [
-    "uv-ui-tools,uv-ui,uv,ui,uview"
+    "uv-ui,uvui,uv-icon,icon,图标,字体图标"
 ],
   "repository": "",
   "engines": {
@@ -31,7 +31,9 @@
     "npmurl": ""
   },
   "uni_modules": {
-    "dependencies": [],
+    "dependencies": [
+			"uv-ui-tools"
+		],
     "encrypt": [],
     "platforms": {
       "cloud": {
@@ -66,14 +68,14 @@
           "百度": "y",
           "字节跳动": "y",
           "QQ": "y",
-          "钉钉": "y",
-          "快手": "y",
-          "飞书": "y",
-          "京东": "y"
+          "钉钉": "u",
+          "快手": "u",
+          "飞书": "u",
+          "京东": "u"
         },
         "快应用": {
-          "华为": "y",
-          "联盟": "y"
+          "华为": "u",
+          "联盟": "u"
         }
       }
     }

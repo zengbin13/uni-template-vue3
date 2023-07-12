@@ -39,7 +39,10 @@
 					name: '滑动切换',
 					url: '/pages-p/other/paging/paging-swiper'
 				},
-
+				{
+					name: '瀑布流',
+					url: '/pages-p/other/paging/waterfall'
+				},
 			]
 		},
 		{

@@ -35,7 +35,7 @@ const http = new Request({
 		loadingText: '加载中...',
 		toast: true,
 		catch: true,
-		encrypt: true
+		encrypt: false
 	}
 });
 /**

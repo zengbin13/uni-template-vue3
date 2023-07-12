@@ -42,6 +42,14 @@
 				}
 			},
 			{
+				"path": "other/paging/waterfall",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
 				"path": "other/iconfont/iconfont",
 				"style": {
 					"navigationBarTitleText": "",
@@ -127,6 +135,7 @@
 				}
 
 			}
+
 		]
 	}],
 	// 分包预载配置
