@@ -12,4 +12,10 @@ explorations
 *.cpuprofile
 certificate
 # uni_modules
-unpackage
+# Ignore the entire unpackage directory
+unpackage/*
+!unpackage/dist/
+unpackage/dist/*
+!unpackage/dist/build
+unpackage/dist/build/*
+!unpackage/dist/build/h5/

@@ -1,6 +1,6 @@
 <template>
 	<view class="index-wrap">
-		<u-navbar back-text="返回" title="其他"></u-navbar>
+		<z-navbar title="其他"></z-navbar>
 		<z-panel :list="list"></z-panel>
 	</view>
 </template>
@@ -57,9 +57,14 @@
 			name: '图表',
 			open: false,
 			pages: [{
-				name: 'u-charts',
-				url: '/pages-p/other/chart/chart'
-			}, ]
+					name: 'u-charts',
+					url: '/pages-p/other/chart/chart'
+				},
+				{
+					name: 'echarts',
+					url: '/pages-p/other/chart/echart'
+				},
+			]
 		},
 		{
 			name: '直播',

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<u-button @click="handleLogin">网络请求</u-button>
 	</view>
 </template>

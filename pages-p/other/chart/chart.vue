@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<qiun-data-charts type="ring" :opts="opts" :chartData="chartData" />
 	</view>
 </template>

@@ -1,7 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title">
-		</u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<!-- #ifdef APP-PLUS -->
 		<view class="video-caontainer">
 			<view>

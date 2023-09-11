@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<u-button class="btn" @click="increment">pinia: {{userStore.count}}</u-button>
 		<u-button class="btn" @click="increment2">globalData: {{count}}</u-button>
 	</view>

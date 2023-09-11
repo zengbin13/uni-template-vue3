@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<view class="">
 			<view style="margin: 10px;">{{isExistApp ? '存在' : '不存在'}}{{pname}}</view>
 			<button @click="awakenApp">{{isExistApp ? '打开' : '下载'}}App</button>

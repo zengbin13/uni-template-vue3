@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar title="我的" :is-back="false"></u-navbar>
+		<z-navbar title="我的" :is-back="false"></z-navbar>
 		<u-button @click="route('/pages-p/other/index')">其他</u-button>
 		<!-- #ifdef MP-WEIXIN -->
 		<u-button @click="route('/pages-p/weixin/index')">微信</u-button>

@@ -1,7 +1,7 @@
 export const IS_DEV = process.env.NODE_ENV === 'development'
 
 // api地址 
-const DEV_BASE_URL = 'http://apibeta.xxx.com'
+const DEV_BASE_URL = ''
 const PRO_BASE_URL = 'http://api.xxx.com'
 export const BASE_URL = IS_DEV ? DEV_BASE_URL : PRO_BASE_URL
 

@@ -3,3 +3,4 @@
 - 下拉列表组件: [地址](https://z-paging.zxlee.cn)
 - 图表组件: [地址](https://www.ucharts.cn/v2/#/demo/index)
 - 网络请求: [地址](https://www.quanzhan.co/luch-request/handbook/)
+- APP升级: [地址](https://ext.dcloud.net.cn/plugin?id=12154)

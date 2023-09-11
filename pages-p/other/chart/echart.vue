@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
-		<view><l-echart ref="echartRef"></l-echart></view>
+		<z-navbar :title="title"></z-navbar>
+		<view><l-echart ref="echartRef" @finished="initChart"></l-echart></view>
 		<!-- <lime-echart></lime-echart> -->
 	</view>
 </template>
@@ -18,6 +18,7 @@
 	} from "@dcloudio/uni-app";
 
 	import * as echarts from 'echarts'
+	// import * as echarts from '@/uni_modules/lime-echart/static/echarts.min'
 
 	const apis = inject('apis')
 	const showToast = inject('showToast')
@@ -106,15 +107,16 @@
 		]
 	})
 	const echartRef = ref(null)
-	onMounted(() => {
-		echartRef.value.init(echarts, chart => {
-			chart.setOption(options.value);
-		});
-	})
-	// const initChart = async () => {
-	// 	const chart = await echartRef.value.init(echarts);
-	// 	chart.setOption(option.calue)
-	// }
+	// onMounted(() => {
+	// 	echartRef.value.init(echarts, chart => {
+	// 		chart.setOption(options.value);
+	// 	});
+	// })
+	const initChart = async () => {
+		console.log('initChart', uni.canIUse('createOffscreenCanvas'), uni.createOffscreenCanvas);
+		const chart = await echartRef.value.init(echarts);
+		chart.setOption(options.value)
+	}
 </script>
 
 <style lang="scss" scoped>

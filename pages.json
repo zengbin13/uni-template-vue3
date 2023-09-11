@@ -15,8 +15,24 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "uni_modules/guyue-updater/pages/updater",
+			"style": {
+				"app-plus": {
+					"animationDuration": 200,
+					"animationType": "fade-in",
+					"background": "transparent",
+					"backgroundColorTop": "transparent",
+					"bounce": "none",
+					"popGesture": "none",
+					"scrollIndicator": false,
+					"titleNView": false
+				},
+				"backgroundColor": "transparent",
+				"disableScroll": true,
+				"navigationStyle": "custom"
+			}
 		}
-
 	],
 	"subPackages": [{
 		"root": "pages-p",
@@ -59,6 +75,14 @@
 			},
 			{
 				"path": "other/chart/chart",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			},
+			{
+				"path": "other/chart/echart",
 				"style": {
 					"navigationBarTitleText": "",
 					"enablePullDownRefresh": false
@@ -173,7 +197,7 @@
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom", //自定义导航栏
 		"app-plus": {
-			"bounce": "none", //全局禁用回弹效果
+			// "bounce": "none", //全局禁用回弹效果
 			"titleNView": "false", //禁用原生导航栏
 			"scrollIndicator": "none"
 		}

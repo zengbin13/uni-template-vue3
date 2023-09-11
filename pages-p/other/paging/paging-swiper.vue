@@ -2,7 +2,7 @@
 	<!-- 使用z-paging-swiper为根节点可以免计算高度 -->
 	<z-paging-swiper>
 		<template #top>
-			<u-navbar title="下拉刷新"></u-navbar>
+			<z-navbar title="下拉刷新"></z-navbar>
 			<z-tabs ref="tabs" :list="tabList" :current="current" @change="tabsChange" />
 		</template>
 		<swiper class="swiper" :current="current" @transition="swiperTransition" @animationfinish="swiperAnimationfinish">
@@ -23,7 +23,7 @@
 	const tabs = ref(null);
 
 	const current = ref(0);
-	const tabList = ref(['测试1', '测试2', '测试3', '测试4']);
+	const tabList = ref(['测试1', '测试2', ]);
 
 	//tabs通知swiper切换
 	const tabsChange = (index) => {

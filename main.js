@@ -9,9 +9,6 @@ import {
 	setupProvide
 } from '@/utils/setup.js'
 
-// 导入 Mock 数据文件
-import '@/mock/index.js';
-
 import uView from './uni_modules/vk-uview-ui';
 
 export function createApp() {

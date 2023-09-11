@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<uv-waterfall ref="waterfall" v-model="flowList" :add-time="50" column-count="2" left-gap="10" right-gap="10" column-gap="8" column-width="40" @changeList="changeList">
 			<template v-slot:list1>
 				<view>
@@ -30,10 +30,6 @@
 		onReachBottom
 	} from "@dcloudio/uni-app";
 
-	import {
-		getWaterfallList
-	} from '@/mock/index.js'
-
 	import waterfallItem from '@/pages-p/components/waterfall-item/waterfall-item.vue'
 
 	const apis = inject('apis')
@@ -46,7 +42,6 @@
 	const list1 = ref([])
 	const list2 = ref([])
 	const getRandomData = async () => {
-		console.log(waterfallWidth.value);
 		const list = await getWaterfallList(1, 20);
 		list.forEach(item => item.height = (item.height * waterfallWidth.value / item.width).toFixed(4))
 		flowList.value = [...flowList.value, ...list]

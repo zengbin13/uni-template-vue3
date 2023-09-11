@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap">
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<input type="text" class="input" v-model="price">
 		<!-- #ifdef APP-PLUS -->
 		<u-button @click="requestPayment('alipay', price)" :loading="loading">支付宝支付</u-button>

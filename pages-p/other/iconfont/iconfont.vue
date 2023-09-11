@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<view class="line">
 			<text class="iconfont icon-outline-smallcaps"></text>
 			<text class="iconfont icon-outline-quote-down-square"></text>

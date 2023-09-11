@@ -2,7 +2,7 @@
 	<view>
 		<z-paging ref="paging" v-model="dataList" @query="queryList">
 			<template #top>
-				<u-navbar title="下拉刷新"></u-navbar>
+				<z-navbar title="下拉刷新"></z-navbar>
 			</template>
 			<view class="item" v-for="(item,index) in dataList" :key="index">
 				<image :src="item.avatar_url" mode="widthFix" class="avatar"></image>
@@ -27,7 +27,7 @@
 			pageNo,
 			pageSize
 		}).then(res => {
-			paging.value.complete(res.data);
+			paging.value.complete([]);
 		}).catch(res => {
 			paging.value.complete(false);
 		})

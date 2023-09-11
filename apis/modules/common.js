@@ -1,16 +1,11 @@
 import http from '@/apis/http/index.js'
 
-//密码登录 
-const updeteAppApi = (data) => http.post('/updete', data)
-
+// 获取人员列表  https://api.github.com/users?since=20
 const requestListApi = ({
 	pageNo,
 	pageSize
-}) => uni.request({
-	url: `https://api.github.com/users?since=${pageNo * pageSize - pageSize}`
-})
+}) => http.get(`/api/users?since=${pageNo * pageSize - pageSize}`)
 
 export default {
-	updeteAppApi,
 	requestListApi,
 }

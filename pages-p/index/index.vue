@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<u-navbar :title="title"></u-navbar>
+		<z-navbar :title="title"></z-navbar>
 		<view class="img-wrap">
 			<image src="/pages-p/static/images/house.png" mode="widthFix" class="house"></image>
 		</view>
