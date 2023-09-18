@@ -2,7 +2,8 @@ import {
 	computed,
 	nextTick,
 	onMounted,
-	ref
+	ref,
+	unref
 } from 'vue';
 
 export function usePaging(
@@ -44,10 +45,10 @@ export function usePaging(
 		});
 		request && request(params);
 		try {
-			const res = await getListApi(params);
+			const res = await unref(getListApi)(params);
 			total.value = res.total || res.count || 0;
-			const list = res.list || res.data || res.tree;
-			extra.value = res?.extra || res?.detail || []
+			const list = res.list || res.data;
+			extra.value = res?.extra
 			console.log('列表数据', list);
 			response && response(list);
 			pagingRef.value?.complete(list);
@@ -62,7 +63,6 @@ export function usePaging(
 	// 刷新列表  不更新pageNo和pageSize
 	const refresh = () => {
 		if (!pagingRef.value) return;
-		console.log(888);
 		pagingRef.value.refresh();
 	};
 
