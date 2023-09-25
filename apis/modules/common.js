@@ -4,7 +4,7 @@ import http from '@/apis/http/index.js'
 const requestListApi = ({
 	pageNo,
 	pageSize
-}) => http.get(`/api/users?since=${pageNo * pageSize - pageSize}`)
+}) => http.get(`https://api.github.com/users?since=${pageNo * pageSize - pageSize}`)
 
 export default {
 	requestListApi,
