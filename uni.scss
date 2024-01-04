@@ -13,12 +13,13 @@
  */
 
 /* 颜色变量 */
+@import '@/common/css/theme.scss';
 
 /* 行为相关颜色 */
-$uni-color-primary: #007aff;
-$uni-color-success: #4cd964;
-$uni-color-warning: #f0ad4e;
-$uni-color-error: #dd524d;
+$uni-color-primary: $uv-primary;
+$uni-color-success: $uv-success;
+$uni-color-warning: $uv-warning;
+$uni-color-error: $uv-error;
 
 /* 文字基本颜色 */
 $uni-text-color:#333;//基本色
