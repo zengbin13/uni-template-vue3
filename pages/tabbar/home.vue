@@ -1,24 +1,28 @@
 <template>
-	<view>
-		<z-navbar title="个人中心2">
-			<template #right>left</template>
-		</z-navbar>
+	<view class="page-wrap">
+		<view class="page-content">
+			<view v-for="(item,index) in 100" :key="index">
+				{{item}}
+			</view>
+		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			
-		}
-	}
+<script setup>
+	import {
+		ref,
+		inject
+	} from 'vue';
+	import {
+		onLoad,
+		onShow
+	} from "@dcloudio/uni-app";
+
+
+
 </script>
 
-<style>
-
+<style lang="scss">	
+</style>
+<style lang="scss" scoped>
 </style>

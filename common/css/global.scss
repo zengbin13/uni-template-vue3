@@ -14,6 +14,26 @@
 	background-color: #fff;
 }
 
+
 page {
-	font-family: PingFangSC, PingFang, SC Arial, Helvetica, sans-serif;
-}
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+				box-sizing: border-box;
+				font-family: PingFangSC, PingFang, SC Arial, Helvetica, sans-serif;
+					background: no-repeat top/100% url('/static/images/page_bg.png');
+							// background: linear-gradient(#7BC9FF, #F2F8FE, #F2F2F6);
+
+	}
+	.page-wrap {
+		height: 100%;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		.page-content {
+			flex: 1;
+			overflow-y: auto;
+			padding: 0 30rpx;
+		}
+	}

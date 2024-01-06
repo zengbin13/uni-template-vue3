@@ -8,8 +8,7 @@
 					您好，欢迎使用
 				</view>
 				<view class="name">
-					中冶宝钢<br />
-					备件修复系统
+					{{viteEnv.VITE_PROJECT_NAME}}
 				</view>
 			</view>
 		</view>
@@ -38,12 +37,9 @@
 	import {
 		useUserStore
 	} from '@/store/user.js'
-	import {
-		FIRSET_INSTALL_STR,
-		IS_DEV
-	} from '@/config/index.js'
-	uni.setStorageSync(FIRSET_INSTALL_STR, false)
-
+	
+	const viteEnv = uni.getStorageSync('viteEnv') || {}
+	uni.setStorageSync(viteEnv.VITE_FIRSET_INSTALL, false)
 
 	const userStore = useUserStore()
 

@@ -6,5 +6,5 @@ export function setupApp(app) {
 	// 注册插件
 	app.use(Pinia.createPinia()).use(uvUI);
 	// 保存环境变量
-	console.log(import.meta.env, 'xxx')
+	uni.setStorageSync('viteEnv', import.meta.env)
 }
