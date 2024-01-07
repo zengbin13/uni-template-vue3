@@ -380,7 +380,7 @@ body {
   flex-direction: column;
   box-sizing: border-box;
   font-family: PingFangSC, PingFang, SC Arial, Helvetica, sans-serif;
-  background: no-repeat top/100% url("static/images/page_bg.png");
+  background: linear-gradient(#a2d0ff, #F2F8FE, #F2F2F6);
 }
 .page-wrap {
   height: 100%;

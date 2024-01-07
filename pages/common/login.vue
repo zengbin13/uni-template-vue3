@@ -8,7 +8,7 @@
 					您好，欢迎使用
 				</view>
 				<view class="name">
-					{{viteEnv.VITE_PROJECT_NAME}}
+					{{env.VITE_PROJECT_NAME}}
 				</view>
 			</view>
 		</view>
@@ -32,14 +32,15 @@
 
 <script setup>
 	import {
-		ref
-	} from 'vue';
-	import {
 		useUserStore
 	} from '@/store/user.js'
+	import {
+		ref,
+		inject
+	} from 'vue';
 	
-	const viteEnv = uni.getStorageSync('viteEnv') || {}
-	uni.setStorageSync(viteEnv.VITE_FIRSET_INSTALL, false)
+	const env = uni.env
+	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL, false)
 
 	const userStore = useUserStore()
 
@@ -86,8 +87,6 @@
 
 <style lang="scss" scoped>
 	:deep(.uni-forms) {
-		.uni-easyinput {
-		}
 		.uni-easyinput__content,
 		.uni-easyinput__placeholder-class {
 			height: 96rpx;
