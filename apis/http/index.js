@@ -1,8 +1,6 @@
 import Request from 'luch-request';
 
 import {
-	IS_DEV,
-	BASE_URL,
 	RES_CODE
 } from './config.js';
 import {
@@ -18,7 +16,12 @@ import {
 } from './utils'
 
 const http = new Request({
-	baseURL: BASE_URL,
+	// #ifdef H5
+	baseURL: import.meta.env.VITE_BASE_URL,
+	// #endif
+	// #ifdef H5
+	baseURL: '',
+	// #endif
 	/**
 	 * 全局自定义参数默认值
 	 * auth: 授权, 是否携带token
@@ -64,6 +67,7 @@ http.interceptors.request.use(
 				title: config.custom.loadingText
 			});
 		}
+		console.log(config, 'config');
 		return config;
 	},
 	(config) => {
@@ -107,7 +111,7 @@ http.interceptors.response.use(
 		if (custom.encrypt && data) data = JSON.parse(decrypt(data));
 		// 4.打印日志
 		responseLog(data);
-		return data;
+		return response.data;
 	},
 	(error) => {
 		// 对响应错误做些什么 statusCode !== 200

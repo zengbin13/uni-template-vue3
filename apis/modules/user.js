@@ -1,12 +1,16 @@
 import http from '@/apis/http/index.js'
 
-//密码登录 
-export const loginApi = (data) => http.post('/produce/login', data, {
-	custom: {
-		loading: true,
-	}
-})
+
+export function loginApi(data) {
+	return http.post('/api/biz-portal/login', data, {
+		custom: {
+			apiName: 'biz-portal',
+			loading: false,
+			loadingText: '登录中...',
+		}
+	});
+}
 
 export default {
-	loginApi,
+	loginApi
 }

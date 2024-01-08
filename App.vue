@@ -2,6 +2,7 @@
 	import {
 		splashscreen
 	} from '@/utils/splash.js'
+	
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -34,4 +35,7 @@
 	@import '@/common/css/iconfont.css';
 	@import '@/common/css/icon-color.css';
 	@import '@/common/css/global.scss';
+	
+	// 适用于微信小程序的额深度选择器
+	// ::v-deep  :deep()
 </style>

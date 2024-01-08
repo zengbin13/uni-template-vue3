@@ -16,7 +16,7 @@
 		<view class="login-form">
 			<uni-forms ref="form" :modelValue="formData" :rules="rules">
 				<uni-forms-item label="" name="account">
-					<uni-easyinput prefixIcon="person" type="text" v-model="formData.account" placeholder="" />
+					<uni-easyinput prefixIcon="person" type="text" v-model="formData.account" placeholder="请输入" />
 				</uni-forms-item>
 				<uni-forms-item label="" name="password">
 					<uni-easyinput prefixIcon="locked-filled" type="password" v-model="formData.password"
@@ -24,7 +24,7 @@
 				</uni-forms-item>
 			</uni-forms>
 			<uv-button class="btn" type="primary" @click="login" :customStyle="customStyle">登 录</uv-button>
-			<view class="retrieve-password">找回密码</view>
+			<view class="retrieve-password" >找回密码</view>
 			<image class="logo" src="@/static/images/logo.png" mode="heightFix"></image>
 		</view>
 	</view>
@@ -32,23 +32,24 @@
 
 <script setup>
 	import {
-		useUserStore
-	} from '@/store/user.js'
-	import {
 		ref,
 		inject
 	} from 'vue';
-	
+	import {
+		useUserStore
+	} from '@/store/user.js'
+
 	const env = uni.env
 	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL, false)
 
 	const userStore = useUserStore()
+	
 
 	// 登录逻辑
 	const form = ref(null)
 	const formData = ref({
-		account: "",
-		password: ""
+		account: "JW015",
+		password: "Abc123"
 	})
 	const rules = {
 		account: {
@@ -87,14 +88,20 @@
 
 <style lang="scss" scoped>
 	:deep(.uni-forms) {
-		.uni-easyinput__content,
-		.uni-easyinput__placeholder-class {
-			height: 96rpx;
-			// background: #F0F3FB !important;
-		}
-
 		.uni-forms-item:nth-child(2) {
 			margin: 48rpx 0 72rpx 0;
+		}
+
+		.uni-easyinput__content-input {
+			height: 96rpx;
+		}
+
+		.uni-input-placeholder {
+			font-size: $uni-font-size-base;
+		}
+
+		.uni-input-input {
+			font-size: $uni-font-size-base;
 		}
 	}
 

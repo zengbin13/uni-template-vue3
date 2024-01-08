@@ -6,7 +6,7 @@
 					<image :src="item.img" mode="widthFix" class="img"></image>
 					<view class="title">{{item.title}}</view>
 					<view class="desc">{{item.desc}}</view>
-					<view class="enter-button"  @click="handleEnterLogin" v-if="splashList.length - 1== index">
+					<view class="enter-button" @click="handleEnterLogin" v-if="splashList.length - 1== index">
 						立即进入
 					</view>
 				</view>
@@ -37,7 +37,7 @@
 		title: '消息管理',
 		desc: '多种方式，实时提现'
 	}]
-	
+
 	const handleEnterLogin = () => {
 		uni.navigateTo({
 			url: uni.env.VITE_LOGIN_PAGE
@@ -51,6 +51,46 @@
 	}
 </style>
 <style lang="scss" scoped>
+	/* #ifndef MP-WEIXIN */
+	::v-deep .uni-swiper-wrapper {
+		.uni-swiper-dots {
+			bottom: 100rpx;
+		}
+		.uni-swiper-dot {
+			width: 16rpx;
+			height: 16rpx;
+			background: $uni-color-primary;
+			opacity: 0.5;
+		}
+		.uni-swiper-dot-active {
+			width: 84rpx;
+			height: 16rpx;
+			background: $uni-color-primary;
+			border-radius: 16rpx;
+			opacity: 1;
+		}
+	}
+	/* #endif */
+
+	// #ifdef MP-WEIXIN
+	::v-deep .wx-swiper-dots {
+		bottom: 100rpx;
+	}
+	::v-deep .wx-swiper-dot {
+		width: 16rpx;
+		height: 16rpx;
+		background: $uni-color-primary;
+		opacity: 0.5;
+	}
+	::v-deep .wx-swiper-dot-active {
+		width: 84rpx;
+		height: 16rpx;
+		background: $uni-color-primary;
+		border-radius: 16rpx;
+		opacity: 1;
+	}
+	//#endif
+
 	.splash-page {
 		flex: 1;
 		display: flex;
@@ -71,6 +111,7 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+
 		.enter-button {
 			margin-top: 100rpx;
 			width: 302rpx;
@@ -117,25 +158,4 @@
 		padding: 20rpx 50rpx;
 
 	}
-
-	::v-deep(.uni-swiper-wrapper) {
-		.uni-swiper-dots {
-			bottom: 120rpx;
-		}
-		.uni-swiper-dot {
-			width: 16rpx;
-			height: 16rpx;
-			background: $uni-color-primary;
-			opacity: 0.5;
-		}
-		.uni-swiper-dot-active {
-			width: 84rpx;
-			height: 16rpx;
-			background: $uni-color-primary;
-			border-radius: 16rpx;
-			opacity: 1;
-		}
-	}
-
-	
 </style>
