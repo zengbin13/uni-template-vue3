@@ -2,6 +2,8 @@
 	<view class="page-wrap">
 		<z-navbar title="个人中心"></z-navbar>
 		<view class="page-content">
+			<uv-button type="primary" @click="handleOther">其他</uv-button>
+			<uv-avatar text="李"></uv-avatar>
 			<uv-button type="primary" @click="logout">退出登录</uv-button>
 		</view>
 	</view>
@@ -19,6 +21,10 @@
 
 
 	const title = ref('标题')
+	
+	const handleOther = () => {
+		uni.$u.route('/pages-temp/index/index')
+	}
 
 	const logout = () => {
 		uni.reLaunch({

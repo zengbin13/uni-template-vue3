@@ -53,6 +53,11 @@ http.interceptors.request.use(
 			const token = uni.getStorageSync('token') || ''
 			config.header.token = token;
 			config.header.Authorization = token;
+			
+			// 业务相关
+			const pattern = /^\/api\/([^/]+)\/.*$/;
+			const match = config.url.match(pattern);
+			config.header.Authorization = token ? `V1#${match[1]}#${token}` : '';
 		}
 		// 3.加密请求数据
 		const field = config.method == 'get' ? 'params' : 'data';

@@ -23,5 +23,6 @@ export function setupApp(app) {
 	uni.env = import.meta.env
 	uni.$u = {
 		showToast,
+		route
 	}
 }

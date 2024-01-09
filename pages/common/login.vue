@@ -40,7 +40,7 @@
 	} from '@/store/user.js'
 
 	const env = uni.env
-	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL, false)
+	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL,false)
 
 	const userStore = useUserStore()
 	

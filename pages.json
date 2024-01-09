@@ -6,7 +6,6 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
 		},
 		{
 			"path": "pages/common/splash",
@@ -31,7 +30,32 @@
 
 		}
 	],
+	"subPackages": [{
+		"root": "pages-temp",
+		"pages": [{
+			"path": "index/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 
+		}, {
+			"path": "template/refresh-list/refresh-list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}]
+	}],
+	// 分包预载配置
+	"preloadRule": {
+		// 进入页面预下载subPackA分包
+		"pages/tabbar/profile": {
+			"network": "all",
+			"packages": ["pages-temp"]
+		}
+	},
 	"tabBar": {
 		"color": "#7A7E83",
 		"selectedColor": "#2979ff",

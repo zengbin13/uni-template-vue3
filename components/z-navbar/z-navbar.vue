@@ -1,6 +1,6 @@
 <template>
 	<!-- 使用v-bind="$props"将所有props传递给子组件 -->
-	<uv-navbar v-bind="$props" placeholder bgColor="#ffffff00" :titleStyle="titleStyle" :fixed="true">
+	<uv-navbar v-bind="$props" placeholder bgColor="#ffffff00" :titleStyle="titleStyle" :fixed="true" autoBack>
 	</uv-navbar>
 </template>
 
