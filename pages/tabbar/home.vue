@@ -1,9 +1,7 @@
 <template>
 	<view class="page-wrap">
 		<view class="page-content">
-			<view v-for="(item,index) in 100" :key="index">
-				{{item}}
-			</view>
+			页面内容
 		</view>
 	</view>
 </template>
@@ -17,12 +15,7 @@
 		onLoad,
 		onShow
 	} from "@dcloudio/uni-app";
-
-
-
 </script>
 
-<style lang="scss">	
-</style>
 <style lang="scss" scoped>
 </style>

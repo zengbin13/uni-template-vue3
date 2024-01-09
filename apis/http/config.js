@@ -4,7 +4,7 @@ export const IV_STR = 'YYYYYYYYYYYYYYYY'
 
 // 响应code码
 export const RES_CODE = {
-	success: 0,
-	error: 1,
-	not_login: 2
+	success: '200',
+	error: '999',
+	not_login: "401"
 };

@@ -67,7 +67,6 @@ http.interceptors.request.use(
 				title: config.custom.loadingText
 			});
 		}
-		console.log(config, 'config');
 		return config;
 	},
 	(config) => {
