@@ -14,6 +14,10 @@
 				<!-- 下拉选择 -->
 				<uv-form-item label="下拉选择:" prop="gender" borderBottom>
 					<input-select v-model="formData.gender" placeholder="请选择性别" :list="genderList"></input-select>
+					<!-- 
+					
+					<uni-data-select  v-model="formData.gender" :localdata="genderList" >
+					</uni-data-select> -->
 				</uv-form-item>
 				<!-- 单选 -->
 				<uv-form-item label="单选:" prop="fruit" borderBottom>
@@ -99,9 +103,6 @@
 		}
 	]
 
-	const cityList = [
-
-	]
 
 	// 表单相关
 	const form = ref(null)

@@ -1,10 +1,9 @@
 <template>
 	<view class="input-select">
-		<uni-data-select class="select" :placeholder="placeholder" :modelValue="modelValue"
+		<uni-data-select class="select-content" :placeholder="placeholder" :modelValue="modelValue"
 			@update:modelValue="changeValue" type="daterange" :localdata="list" :clear="false" :disabled="disabled">
 		</uni-data-select>
 	</view>
-	<slot name="right"></slot>
 </template>
 
 <script>
@@ -82,6 +81,7 @@
 	}
 </script>
 
+
 <style lang="scss">
 	.input-select {
 		display: flex;
@@ -89,7 +89,7 @@
 		justify-content: flex-end;
 		align-items: center;
 
-		.select {
+		&>.select-content {
 			flex: 1;
 			border-radius: 5rpx;
 		}

@@ -2,7 +2,8 @@
 	<view class="login-page">
 		<!-- 背景图片 -->
 		<view class="login-bj">
-			<image class="img" src="@/static/images/login_bg.png" mode="widthFix"></image>
+			<!-- <image class="img" src="@/static/images/login_bg.png" mode="widthFix"></image> -->
+			<image class="img" :src="logoBgUrl" mode="heightFix"></image>
 			<view class="text">
 				<view class="hello">
 					您好，欢迎使用
@@ -24,8 +25,8 @@
 				</uni-forms-item>
 			</uni-forms>
 			<uv-button class="btn" type="primary" @click="login" :customStyle="customStyle">登 录</uv-button>
-			<view class="retrieve-password" >找回密码</view>
-			<image class="logo" src="@/static/images/logo.png" mode="heightFix"></image>
+			<view class="retrieve-password">找回密码</view>
+			<image class="logo" src="@/static/images/logo.png" mode="widthFix"></image>
 		</view>
 	</view>
 </template>
@@ -39,11 +40,15 @@
 		useUserStore
 	} from '@/store/user.js'
 
+
 	const env = uni.env
-	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL,false)
+	uni.setStorageSync(uni.env.VITE_FIRSET_INSTALL, false)
 
 	const userStore = useUserStore()
-	
+
+
+	const logoBgUrl = 'https://images.pexels.com/photos/2387615/pexels-photo-2387615.jpeg?auto=compress&cs=tinysrgb&w=600'
+
 
 	// 登录逻辑
 	const form = ref(null)
@@ -164,8 +169,7 @@
 
 
 		.logo {
-			width: 412rpx;
-			height: 52rpx;
+			width: 200rpx;
 			position: absolute;
 			bottom: 80rpx;
 			left: 0;

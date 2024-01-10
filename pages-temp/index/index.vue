@@ -7,6 +7,7 @@
 				<uv-cell icon="map-fill" title="提交表单" isLink url="/pages-temp/template/form/form" ></uv-cell>
 			</uv-cell-group>
 		</view>
+	
 	</view>
 </template>
 
