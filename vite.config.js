@@ -18,12 +18,12 @@ export default defineConfig({
 		}
 	},
 	// 发布时删除 console
-	build: {
-		minify: 'terser',
-		terserOptions: {
-			compress: {
-				drop_console: true,
-			},
-		},
-	},
+	// build: {
+	// 	minify: 'terser',
+	// 	terserOptions: {
+	// 		compress: {
+	// 			drop_console: true,
+	// 		},
+	// 	},
+	// },
 });

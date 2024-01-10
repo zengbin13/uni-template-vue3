@@ -1,6 +1,6 @@
 <template>
-	<z-paging ref="pagingRef" v-model="dataList" @query="queryList" :default-page-size="defaultPageSize" auto
-		class="paging-wrap">
+	<z-paging ref="pagingRef" v-model="dataList" @query="queryList" :default-page-size="defaultPageSize" :paging-style="{padding: '0 30rpx'}" auto
+>
 		<!-- 顶部插槽 -->
 		<template #top>
 			<z-navbar :title="totalTitle"></z-navbar>
@@ -64,7 +64,6 @@
 
 <style lang="scss" scoped>
 	:deep(.uv-search) {
-
 		.uv-search__content,
 		.uv-search__content__input {
 			background-color: transparent !important;
@@ -72,7 +71,7 @@
 	}
 
 	.paging-wrap {
-		padding: 0 30rpx;
+		padding: 0 30rpx !important;
 	}
 
 	.search-box {

@@ -15,6 +15,11 @@
 /* 颜色变量 */
 @import '@/common/css/theme.scss';
 
+/* uni-ui色彩 */
+$uni-primary: $uv-primary;
+$uni-primary-disable:#94bcff;
+$uni-primary-light: #d4e4ff;
+
 /* 行为相关颜色 */
 $uni-color-primary: $uv-primary;
 $uni-color-success: $uv-success;

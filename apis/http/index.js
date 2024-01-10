@@ -15,8 +15,9 @@ import {
 	responseLog
 } from './utils'
 
+
 const http = new Request({
-	// #ifdef H5
+	// #ifndef H5
 	baseURL: import.meta.env.VITE_BASE_URL,
 	// #endif
 	// #ifdef H5
@@ -53,7 +54,7 @@ http.interceptors.request.use(
 			const token = uni.getStorageSync('token') || ''
 			config.header.token = token;
 			config.header.Authorization = token;
-			
+
 			// 业务相关
 			const pattern = /^\/api\/([^/]+)\/.*$/;
 			const match = config.url.match(pattern);

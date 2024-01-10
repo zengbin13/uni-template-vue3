@@ -21,8 +21,8 @@ page {
 	flex-direction: column;
 	box-sizing: border-box;
 	font-family: PingFangSC, PingFang, SC Arial, Helvetica, sans-serif;
-	background: no-repeat top/100% url('/static/images/page_bg.png');
-	// background: linear-gradient(#7BC9FF, #F2F8FE, #F2F2F6);
+	// background: no-repeat top/100% url('/static/images/page_bg.png');
+	background: linear-gradient(#7BC9FF, #F2F8FE, #F2F2F6);
 	// background: linear-gradient(lighten($uni-color-primary, 20%), #F2F8FE, #F2F2F6);
 
 }

@@ -46,6 +46,13 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "template/form/form",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}]
 	}],
 	// 分包预载配置
