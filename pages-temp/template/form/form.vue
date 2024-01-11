@@ -40,9 +40,16 @@
 				</uv-form-item>
 
 				<!-- 文本域 -->
-				<uv-form-item label="文本域:" prop="introduction" >
-					<uv-textarea v-model="formData.introduction" placeholder="请输入内容" count ></uv-textarea>
+				<uv-form-item label="文本域:" prop="introduction">
+					<uv-textarea v-model="formData.introduction" placeholder="请输入内容" count></uv-textarea>
 				</uv-form-item>
+
+				<!-- 图片上传 -->
+				<uv-form-item label="图片上传:" prop="pics">
+					<uv-upload :fileList="fileList" name="file" multiple :maxCount="10" @afterRead="afterRead"
+						width="80" @delete="deletePic"></uv-upload>
+				</uv-form-item>
+
 			</uv-form>
 		</view>
 		<bottom-btn-group @click1="submit"></bottom-btn-group>
@@ -60,6 +67,9 @@
 		onShow
 	} from "@dcloudio/uni-app";
 	import cityJSON from './pca-code.json'
+	import {
+		fileSyncUploadFilePath as uploadFileApi
+	} from '@/apis/modules/ohter.js'
 
 	const title = ref('提交表单')
 
@@ -114,7 +124,8 @@
 		hobby: [],
 		birthday: '',
 		city: '',
-		introduction: ''
+		introduction: '',
+		pics: []
 	}
 	const formData = ref({
 		...initForm
@@ -161,8 +172,48 @@
 			required: true,
 			message: '请填写自我介绍',
 			trigger: ['change']
+		},
+		pics: {
+			type: 'array',
+			required: true,
+			message: '请上传照片',
+			trigger: ['change']
 		}
 	})
+
+	// 图片相关
+	const fileList = ref([])
+	const deletePic = (event) => {
+		fileList.value.splice(event.index, 1)
+		formData.value.pics = fileList.value
+	}
+	const afterRead = async (event) => {
+		const newFileList = [...event.file]
+		// 作为新上传图片标志位
+		let fileListLen = fileList.value.length
+		newFileList.forEach((item) => {
+			fileList.value.push({
+				...item,
+				status: 'uploading',
+				message: '上传中'
+			})
+		})
+		for (let item of newFileList) {
+			const {
+				data
+			} = await uploadFileApi(item.url)
+			const previewUrl = `http://10.1.1.23:9080/api/sprms/file/download/${data[0].url}`
+			fileList.value.splice(fileListLen, 1, {
+				...item,
+				status: 'success',
+				message: '',
+				url: previewUrl,
+			})
+			// 新增完成标志位增加
+			fileListLen++
+		}
+		formData.value.pics = fileList.value
+	}
 
 	// change校验
 	Object.keys(rules.value).forEach(key => {

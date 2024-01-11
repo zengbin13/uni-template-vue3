@@ -10,3 +10,11 @@ export function getTableData(data) {
 		}
 	});
 }
+
+// 文件上传
+export function fileSyncUploadFilePath(filePath) {
+	return http.upload(`/api/sprms/file/sync/uploadFiles`, {
+		filePath,
+		name: 'file'
+	});
+}

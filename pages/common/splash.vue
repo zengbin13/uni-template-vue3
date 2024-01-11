@@ -63,7 +63,7 @@
 			opacity: 0.5;
 		}
 		.uni-swiper-dot-active {
-			width: 84rpx;
+			width: 64rpx;
 			height: 16rpx;
 			background: $uni-color-primary;
 			border-radius: 16rpx;
@@ -83,7 +83,7 @@
 		opacity: 0.5;
 	}
 	::v-deep .wx-swiper-dot-active {
-		width: 84rpx;
+		width: 64rpx;
 		height: 16rpx;
 		background: $uni-color-primary;
 		border-radius: 16rpx;

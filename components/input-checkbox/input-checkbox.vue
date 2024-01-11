@@ -77,7 +77,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.input-select {
 		display: flex;
 		flex: 1;

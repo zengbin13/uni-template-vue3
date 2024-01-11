@@ -95,7 +95,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.input-area {
 		flex: 1;
 		border-radius: 5rpx;
