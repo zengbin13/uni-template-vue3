@@ -12,7 +12,7 @@ export default defineConfig({
 			'^/api/': {
 				target: 'http://10.1.1.23:9080',
 				changeOrigin: true,
-				// pathRewrite 成功 rewrite 404
+				// pathRewrite rewrite 
 				pathRewrite: (path) => path.replace(/^\/api/, '/api')
 			},
 		}

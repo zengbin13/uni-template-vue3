@@ -45,7 +45,7 @@ export const useUserStore = defineStore('user', {
 				// 获取用户信息
 				this.setUserInfo(userInfo);
 				this.setToken(token);
-				uni.switchTab({
+				uni.reLaunch({
 					url: '/pages/tabbar/home'
 				});
 			} catch (e) {

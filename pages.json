@@ -53,6 +53,13 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "template/tabs-list/tabs-list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}]
 	}],
 	// 分包预载配置

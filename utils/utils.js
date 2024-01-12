@@ -81,3 +81,18 @@ export function getHistoryPage(index = 1) {
 		vm,
 	};
 }
+
+// 更换树结构字段名称
+export function transformTreeData(treeData, fieldMap) {
+    function mapNode(node) {
+        const transformedNode = {
+			...node
+		};
+        transformedNode.value = node[fieldMap.value];
+        transformedNode.text = node[fieldMap.text];
+        transformedNode.children = node[fieldMap.children].map(mapNode);
+        return transformedNode;
+    }
+
+    return treeData.map(mapNode);
+}
