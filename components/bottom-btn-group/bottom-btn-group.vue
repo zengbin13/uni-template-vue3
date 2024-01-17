@@ -54,11 +54,7 @@
 			default: () => {
 				return {
 					text: '取消',
-					customStyle: {
-						background: '#cddbe9',
-						color: uni.$uv.config.color['uv-primary'],
-						border: 'none'
-					}
+					customStyle: {}
 				}
 			}
 		},
@@ -94,11 +90,15 @@
 	})
 	const customStyle2 = computed(() => {
 		if (!btn2.value) return initStyle
-		return Object.assign({}, initStyle, btn2.value.customStyle || {})
+		return Object.assign({}, initStyle, {
+			background: '#cddbe9',
+			color: uni.$uv.config.color['uv-primary'],
+			border: 'none'
+		}, btn2.value.customStyle || {})
 	})
 
 	const handleClick = (num) => {
-		if(cancelBack.value && num == 2) {
+		if (cancelBack.value && num == 2) {
 			uni.navigateBack()
 			return
 		}

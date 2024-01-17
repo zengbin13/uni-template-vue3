@@ -24,11 +24,6 @@
 
 	const emits = defineEmits(['update:modelValue'])
 	const props = defineProps({
-		// 标题
-		name: {
-			type: String,
-			default: '选择数据'
-		},
 		// 占位符
 		placeholder: {
 			type: String,
@@ -38,16 +33,6 @@
 		modelValue: {
 			type: [String, Number],
 			default: 0
-		},
-		// 是否必填
-		isRequired: {
-			type: Boolean,
-			default: true
-		},
-		// 是否边框
-		isBorder: {
-			type: Boolean,
-			default: true
 		},
 		// 不可用
 		disabled: {
@@ -68,12 +53,10 @@
 	})
 
 	const {
-		name,
-		isRequired,
 		modelValue,
-		isBorder,
 		list,
-		disabled
+		disabled,
+		placeholder
 	} = toRefs(props)
 
 	const changeValue = (value) => {

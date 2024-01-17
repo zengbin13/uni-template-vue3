@@ -46,16 +46,6 @@
 			type: [String, Number],
 			default: 0
 		},
-		// 是否必填
-		isRequired: {
-			type: Boolean,
-			default: false
-		},
-		// 是否边框
-		isBorder: {
-			type: Boolean,
-			default: true
-		},
 		list: {
 			type: Array,
 			default: () => []
@@ -74,9 +64,7 @@
 
 	const {
 		name,
-		isRequired,
 		modelValue,
-		isBorder,
 		list,
 		map
 	} = toRefs(props)

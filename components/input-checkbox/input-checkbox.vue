@@ -23,25 +23,10 @@
 
 	const emits = defineEmits(['update:modelValue', "change"])
 	const props = defineProps({
-		// 标题
-		name: {
-			type: String,
-			default: '选择数据'
-		},
 		// 输入值  multiple=true时为 Array类型，否则为 String或Number类型
 		modelValue: {
 			type: [Number, Array, String],
 			default: ''
-		},
-		// 是否必填
-		isRequired: {
-			type: Boolean,
-			default: true
-		},
-		// 是否边框
-		isBorder: {
-			type: Boolean,
-			default: true
 		},
 		// 是否为多选
 		isMultiple: {
@@ -62,10 +47,7 @@
 	})
 
 	const {
-		name,
-		isRequired,
 		modelValue,
-		isBorder,
 		list,
 		isMultiple
 	} = toRefs(props)

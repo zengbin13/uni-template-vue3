@@ -33,25 +33,10 @@
 			type: Boolean,
 			default: false // 时间范围
 		},
-		// 标题
-		name: {
-			type: String,
-			default: '选择时间'
-		},
 		// 输入值
 		modelValue: {
 			type: [String, Number, Array],
 			default: ''
-		},
-		// 是否必填
-		isRequired: {
-			type: Boolean,
-			default: true
-		},
-		// 是否边框
-		isBorder: {
-			type: Boolean,
-			default: true
 		},
 		// 是否显示小时
 		isHour: {
@@ -72,10 +57,7 @@
 
 	const {
 		type,
-		name,
-		isRequired,
 		modelValue,
-		isBorder,
 		isHour,
 		isRange,
 		disabled

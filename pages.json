@@ -60,6 +60,13 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "template/wx-login/wx-login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}]
 	}],
 	// 分包预载配置

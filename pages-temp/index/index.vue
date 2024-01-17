@@ -6,6 +6,7 @@
 				<uv-cell icon="map-fill" title="列表加载" isLink url="/pages-temp/template/refresh-list/refresh-list" ></uv-cell>
 				<uv-cell icon="map-fill" title="提交表单" isLink url="/pages-temp/template/form/form" ></uv-cell>
 				<uv-cell icon="map-fill" title="Tabs列表" isLink url="/pages-temp/template/tabs-list/tabs-list" ></uv-cell>
+				<uv-cell icon="map-fill" title="微信登录" isLink url="/pages-temp/template/wx-login/wx-login" ></uv-cell>
 			</uv-cell-group>
 		</view>
 	

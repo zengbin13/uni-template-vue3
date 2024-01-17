@@ -37,20 +37,10 @@
 
 	const emits = defineEmits(['update:modelValue'])
 	const props = defineProps({
-		// 标题
-		name: {
-			type: String,
-			default: '输入字段'
-		},
 		// 输入值
 		modelValue: {
 			type: [String, Number],
 			default: ''
-		},
-		// 是否必填
-		isRequired: {
-			type: Boolean,
-			default: true
 		},
 		// 是否为数值
 		isNumber: {
@@ -66,11 +56,6 @@
 		disabled: {
 			type: Boolean,
 			default: false
-		},
-		// 是否边框
-		isBorder: {
-			type: Boolean,
-			default: true
 		},
 		// 是否可输入
 		unit: {
@@ -107,14 +92,11 @@
 	})
 
 	const {
-		name,
-		isRequired,
 		isNumber,
 		modelValue,
 		placeholder,
 		disabled,
 		unit,
-		isBorder,
 		prefix,
 		max,
 		verificationRules,
