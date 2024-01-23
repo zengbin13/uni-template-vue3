@@ -109,6 +109,14 @@
 		.uni-input-input {
 			font-size: $uni-font-size-base;
 		}
+		
+		.uniui-clear {
+			font-size: 20px !important;
+		}
+		.uniui-eye-filled {
+			font-size: 20px !important;
+		}
+
 	}
 
 

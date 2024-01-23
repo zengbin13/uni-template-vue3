@@ -33,6 +33,10 @@
 			type: Boolean,
 			default: false // 时间范围
 		},
+		isRequired: {
+			type: Boolean,
+			default: false 
+		},
 		// 输入值
 		modelValue: {
 			type: [String, Number, Array],
@@ -60,7 +64,8 @@
 		modelValue,
 		isHour,
 		isRange,
-		disabled
+		disabled,
+		isRequired
 	} = toRefs(props)
 
 	const changeValue = (value) => {
