@@ -67,16 +67,21 @@
 				"enablePullDownRefresh": false
 			}
 
-		}    ,{
-                    "path" : "template/test/test",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+		}, {
+			"path": "template/test/test",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "template/custom-tabbar/custom-tabbar",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}]
 	}],
 	// 分包预载配置
 	"preloadRule": {
