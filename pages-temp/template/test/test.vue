@@ -23,7 +23,6 @@
 		onShow
 	} from "@dcloudio/uni-app";
 
-	const apis = inject('apis')
 	const showToast = inject('showToast')
 	const route = inject('route')
 
