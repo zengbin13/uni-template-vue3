@@ -2,7 +2,10 @@
 	import {
 		splashscreen
 	} from '@/utils/splash.js'
-	
+	import {
+		updateManager
+	} from '@/utils/updateManager.js'
+
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')
@@ -21,6 +24,11 @@
 				// 注册scheme后唤醒APP - 处理args参数，如直达到某新页面等
 			}
 			// #endif
+			
+			
+			// #ifdef MP
+			updateManager()
+			// #endif
 		},
 		onHide: function() {
 			console.log('App Hide')
@@ -35,7 +43,7 @@
 	@import '@/common/css/iconfont.css';
 	@import '@/common/css/icon-color.css';
 	@import '@/common/css/global.scss';
-	
+
 	// 适用于微信小程序的额深度选择器
 	// ::v-deep  :deep()
 </style>

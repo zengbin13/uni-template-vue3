@@ -110,7 +110,7 @@ http.interceptors.response.use(
 				if (custom.toast) showToast(message);
 				return custom.catch ? Promise.reject(response.data) : new Promise(() => {});
 			}
-			Promise.reject(response.data);
+			return Promise.reject(response.data);
 		}
 		// 3.解密数据
 		if (custom.encrypt && data) data = JSON.parse(decrypt(data));

@@ -1,150 +1,137 @@
 <template>
 	<view class="page-wrap">
-		<!-- 背景图 -->
-		<view class="top">
-			<view class="top-content">
-				<image src="https://thispersondoesnotexist.com/" mode="widthFix" class="avatar"></image>
-			</view>
+		<z-navbar :title="title"></z-navbar>
+		<input type="text" class="input" v-model="price">
+		<!-- #ifdef APP-PLUS -->
+		<u-button @click="requestPayment('alipay', price)" :loading="loading">支付宝支付</u-button>
+		<u-button @click="requestPayment('wxpay', price)">微信支付</u-button>
+		<!-- #endif -->
 
-			<!-- 波浪 start -->
-			<view class="tnwave waveAnimation">
-				<view class="waveWrapperInner bgTop">
-					<view class="wave waveTop"
-						style="background-image: url('https://resource.tuniaokj.com/images/wave/wave-2.png')"></view>
-				</view>
-				<view class="waveWrapperInner bgMiddle">
-					<view class="wave waveMiddle"
-						style="background-image: url('https://resource.tuniaokj.com/images/wave/wave-2.png')"></view>
-				</view>
-				<view class="waveWrapperInner bgBottom">
-					<view class="wave waveBottom"
-						style="background-image: url('https://resource.tuniaokj.com/images/wave/wave-1.png')"></view>
-				</view>
-			</view>
-			<!-- 波浪 end -->
-		</view>
-		<view class="bottom">
-			xx
-		</view>
+		<!-- #ifdef MP-WEIXIN -->
+		<u-button @click="weixinPay(price)">微信支付</u-button>
+		<!-- #endif -->
 	</view>
 </template>
 
 <script setup>
 	import {
 		ref,
+		inject
 	} from 'vue';
 	import {
 		onLoad,
 		onShow
 	} from "@dcloudio/uni-app";
 
-	const title = ref('标题')
+	const apis = inject('apis')
+	const showToast = inject('showToast')
+	const route = inject('route')
+
+	const title = ref('支付')
+
+	const price = ref(0.01)
+	const loading = ref(false)
+	const requestPayment = async (payType = 'alipay', price = 0.1) => {
+		try {
+			const {
+				provider
+			} = await uni.getProvider({
+				service: "payment",
+			})
+			if (!provider.includes(payType)) {
+				showToast(`不包含的支付方式: ${payType}`);
+				return
+			}
+			const orderInfo = await getOrderInfo(payType, price);
+			try {
+				const res = await uni.requestPayment({
+					provider: payType,
+					orderInfo: orderInfo
+				})
+				console.log(res);
+			} catch (e) {
+				console.error(e, '支付失败');
+				showToast('支付失败');
+			}
+		} catch (e) {
+			console.error(e);
+			showToast('获取支付通道或订单失败');
+		}
+	}
+	const getOrderInfo = async (payType, price) => {
+		const url = `https://demo.dcloud.net.cn/payment/?payid=${payType}&appid=HBuilder&total=${price}`
+		try {
+			const {
+				data
+			} = await uni.request({
+				url
+			});
+			return data
+		} catch (err) {
+			return Promise.reject('获取支付订单失败')
+		}
+	}
+
+	/**
+	 * 开通流程: 
+	 *   1. 申请微信支付商户号 https://pay.weixin.qq.com/
+	 *   2. 绑定已有商户号并开通微信支付 https://mp.weixin.qq.com/
+	 * 支付流程: 
+	 *   1. 调用wx.login 接口，获取code
+	 *   2. 后端根据code appid appsecert获取 openid（用户唯一标识）
+	 *   3. wx.requestPayment 调起微信支付
+	 */
+	const weixinPay = async (price) => {
+		try {
+			const {
+				code
+			} = await uni.login({
+				scopes: "auth_base" //静默授权
+			})
+			const url = `https://unidemo.dcloud.net.cn/payment/wx/mp?code=${code}&amount=${price}`
+			const {
+				data
+			} = await uni.request({
+				url
+			});
+			let paymentData = data.payment || {};
+			const res = await uni.requestPayment({
+				timeStamp: paymentData.timeStamp,
+				nonceStr: paymentData.nonceStr,
+				package: paymentData.package,
+				signType: 'MD5',
+				paySign: paymentData.paySign,
+			})
+			showToast('支付成功');
+		} catch (e) {
+			console.error(e);
+			showToast('支付失败');
+		}
+	}
 </script>
 
 
-<style>
-	page {
-		background: #fff;
-	}
-</style>
 <style lang="scss" scoped>
-	.top {
-		background-image: url('https://resource.tuniaokj.com/images/swiper/summer.jpg');
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		height: 450rpx;
-	}
-	
-	.avatar {
-		width: 120rpx;
-		height: 120rpx;
-		border-radius: 50%;
-	}
-	.top-content {
+	.input {
+		border: 1px solid #464646;
+		margin: 20rpx 0;
+		border-radius: 6rpx;
+		height: 52rpx;
+		padding: 10rpx 20rpx;
 		display: flex;
-		justify-content: center;
-	}
+		margin: 20rpx;
+		display: flex;
+		align-items: center;
 
-
-	/* 波浪*/
-	@keyframes move_wave {
-		0% {
-			transform: translateX(0) translateZ(0) scaleY(1)
-		}
-
-		50% {
-			transform: translateX(-25%) translateZ(0) scaleY(1)
-		}
-
-		100% {
-			transform: translateX(-50%) translateZ(0) scaleY(1)
+		&::before {
+			content: '￥';
+			color: $uni-color-primary;
+			margin-right: 10rpx;
 		}
 	}
 
-	.tnwave {
-		overflow: hidden;
-		position: absolute;
-		z-index: 9999;
-		height: 200rpx;
-		left: 0;
-		right: 0;
-		top: 250rpx;
-		bottom: auto;
+	// 微信小程序修改组件样式使用深度选择器 ::v-deep
+	::v-deep .u-btn {
+		margin: 20rpx;
 	}
-
-	.waveWrapperInner {
-		position: absolute;
-		width: 100%;
-		overflow: hidden;
-		height: 100%;
-	}
-
-	.wave {
-		position: absolute;
-		left: 0;
-		width: 200%;
-		height: 100%;
-		background-repeat: repeat no-repeat;
-		background-position: 0 bottom;
-		transform-origin: center bottom;
-	}
-
-	.bgTop {
-		opacity: 0.4;
-	}
-
-	.waveTop {
-		background-size: 50% 45px;
-	}
-
-	.waveAnimation .waveTop {
-		animation: move_wave 4s linear infinite;
-	}
-
-	.bgMiddle {
-		opacity: 0.6;
-	}
-
-	.waveMiddle {
-		background-size: 50% 40px;
-	}
-
-	.waveAnimation .waveMiddle {
-		animation: move_wave 3.5s linear infinite;
-	}
-
-	.bgBottom {
-		opacity: 0.95;
-	}
-
-	.waveBottom {
-		background-size: 50% 35px;
-	}
-
-	.waveAnimation .waveBottom {
-		animation: move_wave 2s linear infinite;
-	}
-
-	/* 波浪*/
 </style>

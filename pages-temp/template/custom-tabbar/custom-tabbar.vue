@@ -1,17 +1,15 @@
 <template>
 	<view class="page-wrap">
-		<z-navbar :title="title"></z-navbar>
+		<z-navbar :title="title" v-if="curTabIndex == 0"></z-navbar>
 		<!-- 内容区域 -->
 		<view class="page-content">
 			<view class="" v-show="curTabIndex == 0">
 				<view v-for="(item,index) in 100" :key="index">
-					tab1 - {{item}}
+					 {{item}}
 				</view>
 			</view>
 			<view class="" v-show="curTabIndex == 2">
-				<view v-for="(item,index) in 100" :key="index">
-					tab2 - {{item}}
-				</view>
+				<Tab2></Tab2>
 			</view>
 		</view>
 		<!-- 自定义tabbar -->
@@ -42,6 +40,7 @@
 		onLoad,
 		onShow
 	} from "@dcloudio/uni-app";
+	import Tab2 from './tabbar/tab-2.vue'
 
 	const title = ref('自定义tabbar')
 
@@ -64,9 +63,14 @@
 	}
 </script>
 
+
 <style lang="scss" scoped>
 	:deep(.uv-tabbar) {
 		max-height: 100rpx !important;
+	}
+	
+	.page-content {
+		padding: 0;
 	}
 
 	.center-wrap {
