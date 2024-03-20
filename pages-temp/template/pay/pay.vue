@@ -3,12 +3,12 @@
 		<z-navbar :title="title"></z-navbar>
 		<input type="text" class="input" v-model="price">
 		<!-- #ifdef APP-PLUS -->
-		<u-button @click="requestPayment('alipay', price)" :loading="loading">支付宝支付</u-button>
-		<u-button @click="requestPayment('wxpay', price)">微信支付</u-button>
+		<uv-button @click="requestPayment('alipay', price)" :loading="loading">支付宝支付</uv-button>
+		<uv-button @click="requestPayment('wxpay', price)">微信支付</uv-button>
 		<!-- #endif -->
 
 		<!-- #ifdef MP-WEIXIN -->
-		<u-button @click="weixinPay(price)">微信支付</u-button>
+		<uv-button @click="weixinPay(price)">微信支付</uv-button>
 		<!-- #endif -->
 	</view>
 </template>
@@ -93,6 +93,7 @@
 			} = await uni.request({
 				url
 			});
+			console.log(data, '订单数据');
 			let paymentData = data.payment || {};
 			const res = await uni.requestPayment({
 				timeStamp: paymentData.timeStamp,
@@ -130,7 +131,7 @@
 	}
 
 	// 微信小程序修改组件样式使用深度选择器 ::v-deep
-	::v-deep .u-btn {
+	::v-deep .uv-btn {
 		margin: 20rpx;
 	}
 </style>

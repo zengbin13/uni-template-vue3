@@ -74,7 +74,6 @@
 		try {
 			await form.value.validate()
 			await userStore.loginAction({
-				"appId": "biz-portal",
 				"username": formData.value.account,
 				"password": formData.value.password,
 			})

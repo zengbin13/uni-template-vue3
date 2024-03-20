@@ -13,7 +13,9 @@
 			if (token) {
 				// 调用store方法, 更新初始化数据
 			}
+			// #ifdef APP-PLUS
 			splashscreen()
+			// #endif
 		},
 		onShow: function() {
 			console.log('App Show')

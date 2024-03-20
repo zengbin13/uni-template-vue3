@@ -102,6 +102,13 @@
 				"enablePullDownRefresh": false
 			}
 
+		}, {
+			"path": "template/dynamic-form/dynamic-form",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}]
 	}],
 	// 分包预载配置

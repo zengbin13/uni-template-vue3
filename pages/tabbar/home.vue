@@ -8,8 +8,6 @@
 				首页
 			</view>
 		</view>
-		<view class="page-content">
-		</view>
 	</view>
 </template>
 
@@ -22,6 +20,12 @@
 		onLoad,
 		onShow
 	} from "@dcloudio/uni-app";
+	
+	const region = ref([])
+	const bindRegionChange = (e) => {
+		console.log(e.detail.value);
+	}
+	
 </script>
 
 <style lang="scss" scoped>
