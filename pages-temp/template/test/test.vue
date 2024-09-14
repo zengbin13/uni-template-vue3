@@ -1,136 +1,75 @@
 <template>
-	<view class="page-wrap">
-		<z-navbar :title="title"></z-navbar>
-		<input type="text" class="input" v-model="price">
-		<!-- #ifdef APP-PLUS -->
-		<u-button @click="requestPayment('alipay', price)" :loading="loading">支付宝支付</u-button>
-		<u-button @click="requestPayment('wxpay', price)">微信支付</u-button>
-		<!-- #endif -->
-
-		<!-- #ifdef MP-WEIXIN -->
-		<u-button @click="weixinPay(price)">微信支付</u-button>
-		<!-- #endif -->
-	</view>
+	<div class="container">
+		<canvas ref="posterCanvas" canvas-id="poster" id="poster" :width="canvasWidth" :height="canvasHeight"></canvas>
+		<button @click="savePoster">保存海报</button>
+	</div>
 </template>
 
 <script setup>
 	import {
 		ref,
-		inject
+		onMounted
 	} from 'vue';
-	import {
-		onLoad,
-		onShow
-	} from "@dcloudio/uni-app";
 
-	const showToast = inject('showToast')
-	const route = inject('route')
+	const canvasWidth = 300; // Canvas宽度
+	const canvasHeight = 400; // Canvas高度
+	const posterData = {
+		imageUrl: "https://tqw-file-dev.oss-cn-chengdu.aliyuncs.com/090840-17084777202525_1709824927127.jpg", // 海报背景图片路径
+		text: '这是海报文字', // 海报文字内容
+	};
 
-	const title = ref('支付')
+	const posterCanvas = ref(null);
 
-	const price = ref(0.01)
-	const loading = ref(false)
-	const requestPayment = async (payType = 'alipay', price = 0.1) => {
-		try {
-			const {
-				provider
-			} = await uni.getProvider({
-				service: "payment",
-			})
-			if (!provider.includes(payType)) {
-				showToast(`不包含的支付方式: ${payType}`);
-				return
-			}
-			const orderInfo = await getOrderInfo(payType, price);
-			try {
-				const res = await uni.requestPayment({
-					provider: payType,
-					orderInfo: orderInfo
-				})
-				console.log(res);
-			} catch (e) {
-				console.error(e, '支付失败');
-				showToast('支付失败');
-			}
-		} catch (e) {
-			console.error(e);
-			showToast('获取支付通道或订单失败');
-		}
-	}
-	const getOrderInfo = async (payType, price) => {
-		const url = `https://demo.dcloud.net.cn/payment/?payid=${payType}&appid=HBuilder&total=${price}`
-		try {
-			const {
-				data
-			} = await uni.request({
-				url
-			});
-			return data
-		} catch (err) {
-			return Promise.reject('获取支付订单失败')
-		}
-	}
+	const drawPoster = async () => {
+		const canvas = posterCanvas.value;
+		const ctx = uni.createCanvasContext('poster')
 
-	/**
-	 * 开通流程: 
-	 *   1. 申请微信支付商户号 https://pay.weixin.qq.com/
-	 *   2. 绑定已有商户号并开通微信支付 https://mp.weixin.qq.com/
-	 * 支付流程: 
-	 *   1. 调用wx.login 接口，获取code
-	 *   2. 后端根据code appid appsecert获取 openid（用户唯一标识）
-	 *   3. wx.requestPayment 调起微信支付
-	 */
-	const weixinPay = async (price) => {
-		try {
-			const {
-				code
-			} = await uni.login({
-				scopes: "auth_base" //静默授权
-			})
-			const url = `https://unidemo.dcloud.net.cn/payment/wx/mp?code=${code}&amount=${price}`
-			const {
-				data
-			} = await uni.request({
-				url
-			});
-			let paymentData = data.payment || {};
-			const res = await uni.requestPayment({
-				timeStamp: paymentData.timeStamp,
-				nonceStr: paymentData.nonceStr,
-				package: paymentData.package,
-				signType: 'MD5',
-				paySign: paymentData.paySign,
-			})
-			showToast('支付成功');
-		} catch (e) {
-			console.error(e);
-			showToast('支付失败');
-		}
-	}
+		// // 获取图片信息
+		// const imageInfo = await uni.getImageInfo({
+		// 	src: posterData.imageUrl,
+		// });
+		
+
+		// // 绘制背景图片
+		// ctx.drawImage(imageInfo.path, 0, 0, canvasWidth, canvasHeight);
+
+		// 设置文字样式
+		ctx.font = '16px Arial';
+		ctx.textAlign = 'center';
+		ctx.fillStyle = '#FFFFFF'; // 文字颜色
+
+		// 计算文字位置居中显示在图片上方
+		const textX = canvasWidth / 2;
+		const textY = canvasHeight / 2 - 20; // 文字在图片中垂直居中偏上一些
+
+		// 绘制文字
+		ctx.fillText(posterData.text, textX, textY);
+	};
+
+	const savePoster = () => {
+		const canvas = posterCanvas.value;
+		canvas.toBlob((blob) => {
+			const imageUrl = URL.createObjectURL(blob);
+			const link = document.createElement('a');
+			link.href = imageUrl;
+			link.download = 'poster.png';
+			link.click();
+			URL.revokeObjectURL(imageUrl);
+		});
+	};
+
+	onMounted(() => {
+		drawPoster();
+	});
 </script>
 
-
-<style lang="scss" scoped>
-	.input {
-		border: 1px solid #464646;
-		margin: 20rpx 0;
-		border-radius: 6rpx;
-		height: 52rpx;
-		padding: 10rpx 20rpx;
+<style>
+	.container {
 		display: flex;
-		margin: 20rpx;
-		display: flex;
+		flex-direction: column;
 		align-items: center;
-
-		&::before {
-			content: '￥';
-			color: $uni-color-primary;
-			margin-right: 10rpx;
-		}
 	}
-
-	// 微信小程序修改组件样式使用深度选择器 ::v-deep
-	::v-deep .u-btn {
-		margin: 20rpx;
+	#poster {
+		border: 1rpx #f00;
 	}
 </style>

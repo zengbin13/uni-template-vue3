@@ -109,7 +109,16 @@
 				"enablePullDownRefresh": false
 			}
 
-		}]
+		}    ,{
+                    "path" : "template/socket/socket",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 	}],
 	// 分包预载配置
 	"preloadRule": {
@@ -128,8 +137,8 @@
 		"list": [{
 				"pagePath": "pages/tabbar/home",
 				"text": "首页",
-				"iconPath": "./static/images/tabbar/home.png",
-				"selectedIconPath": "./static/images/tabbar/home_a.png"
+				"iconPath": "./static/images/tabbar/apng/home2.png",
+				"selectedIconPath": "./static/images/tabbar/apng/home2_a.png"
 			},
 			{
 				"pagePath": "pages/tabbar/profile",

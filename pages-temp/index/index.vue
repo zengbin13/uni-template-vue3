@@ -14,6 +14,7 @@
 				<uv-cell icon="map-fill" title="音频播放" isLink url="/pages-temp/template/audio/audio"></uv-cell>
 				<uv-cell icon="map-fill" title="支付" isLink url="/pages-temp/template/pay/pay"></uv-cell>
 				<uv-cell icon="map-fill" title="动态表单" isLink url="/pages-temp/template/dynamic-form/dynamic-form"></uv-cell>
+				<uv-cell icon="map-fill" title="websocket" isLink url="/pages-temp/template/socket/socket"></uv-cell>
 				<uv-cell icon="map-fill" title="测试页面" isLink url="/pages-temp/template/test/test"></uv-cell>
 			</uv-cell-group>
 		</view>
